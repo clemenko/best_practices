@@ -3,6 +3,9 @@
 - [kernel](#kernel)
 - [daemon](#daemon)
 - [node sizes](#node)
+- [build script](#build)
+- [compose example](#compose)
+
 
 <a name="kernel"></a>
 ## kernel :
@@ -31,3 +34,11 @@ echo -e "{ \n \"storage-driver\": \"overlay2\", \n \"storage-opts\": [\"overlay2
 ## node sizing :
 controllers - 4vcpu/16gb ram
 workers - 4vcpu/16gb ram +
+
+<a name="build"></a>
+## build script :
+<a href="https://github.com/clemenko/ucp/blob/master/do_ucp.sh">https://github.com/clemenko/ucp/blob/master/do_ucp.sh</a>
+
+<a name="compose"></a>
+## compose example :
+<a href="https://github.com/clemenko/compose_files/blob/master/compose_all_the_things.yml">https://github.com/clemenko/compose_files/blob/master/compose_all_the_things.yml</a>
