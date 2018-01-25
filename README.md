@@ -6,6 +6,8 @@
 - [build script](#build)
 - [compose example](#compose)
 
+## OS
+Use the latest. Centos 7.4 works well. 
 
 <a name="kernel"></a>
 ## kernel :
