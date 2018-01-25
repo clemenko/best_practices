@@ -7,7 +7,7 @@
 - [compose example](#compose)
 
 ## OS
-Use the latest. Centos 7.4 works well. 
+Use the latest. Centos 7.4 works well.
 
 <a name="kernel"></a>
 ## kernel :
@@ -35,6 +35,7 @@ echo -e "{ \n \"storage-driver\": \"overlay2\", \n \"storage-opts\": [\"overlay2
 <a name="node"></a>
 ## node sizing :
 controllers - 4vcpu/16gb ram
+
 workers - 4vcpu/16gb ram +
 
 <a name="build"></a>
