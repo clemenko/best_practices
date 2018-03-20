@@ -18,7 +18,10 @@ echo "net.ipv4.neigh.default.gc_thresh1 = 80000" >> /etc/sysctl.conf
 echo "net.ipv4.neigh.default.gc_thresh2 = 90000" >> /etc/sysctl.conf
 echo "net.ipv4.neigh.default.gc_thresh3 = 100000" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_keepalive_time=600" >> /etc/sysctl.conf
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 echo "fs.may_detach_mounts=1" >> /etc/sysctl.conf
+echo "fs.inotify.max_user_instances=8192" >> /etc/sysctl.conf
+echo "fs.inotify.max_user_watches=1048576" >> /etc/sysctl.conf
 sysctl -p
 ```
 
