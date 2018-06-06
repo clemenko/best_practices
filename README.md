@@ -43,7 +43,7 @@ workers - 4vcpu/16gb ram +
 
 <a name="build"></a>
 ## build script :
-<a href="https://github.com/clemenko/ucp/blob/master/do_ucp.sh">https://github.com/clemenko/ucp/blob/master/do_ucp.sh</a>
+<a href="https://github.com/clemenko/ucp/blob/master/do_ucp.sh">https://github.com/clemenko/ucp/blob/master/ucp.sh</a>
 
 <a name="compose"></a>
 ## compose example :
