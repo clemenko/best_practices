@@ -31,7 +31,7 @@ Note that you can turn on the experimental prometheus endpoint.
 
 ```bash
 docker plugin disable docker/telemetry:1.0.0.linux-x86_64-stable
-echo -e "{\n \"storage-driver\": \"overlay2\", \n \"storage-opts\": [\"overlay2.override_kernel_check=true\"], \n \"log-driver\": \"json-file\", \"log-opts\": {\"max-size\": \"10m\", \"max-file\": \"3\"}, \n \"metrics-addr\" : \"0.0.0.0:9323\", \n \"experimental\" : true \n}" > /etc/docker/daemon.json
+echo -e "{\n \"log-driver\": \"json-file\", \"log-opts\": {\"max-size\": \"10m\", \"max-file\": \"3\"}, \n \"metrics-addr\" : \"0.0.0.0:9323\", \n \"experimental\" : true \n}" > /etc/docker/daemon.json
  systemctl restart docker
 ```
 
