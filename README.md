@@ -13,15 +13,15 @@ Use the latest. Centos 7.4 works well.
 ## kernel :
 ```bash
 echo "vm.swappiness=0" >> /etc/sysctl.conf # turn off swapping unless necessary
-echo "vm.overcommit_memory=1" >> /etc/sysctl.conf # allwoing oversubscription 
+echo "vm.overcommit_memory=1" >> /etc/sysctl.conf # allwoing oversubscription
 echo "net.ipv4.neigh.default.gc_thresh1 = 80000" >> /etc/sysctl.conf # arp cache fixes
 echo "net.ipv4.neigh.default.gc_thresh2 = 90000" >> /etc/sysctl.conf # arp cache fixes
 echo "net.ipv4.neigh.default.gc_thresh3 = 100000" >> /etc/sysctl.conf # arp cache fixes
 echo "net.ipv4.tcp_keepalive_time=600" >> /etc/sysctl.conf # decrease the tcp timeout for ipvs
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf # needed for iptables
 echo "fs.may_detach_mounts=1" >> /etc/sysctl.conf # needed for host mountpoints with RHEL 7.4
-echo "fs.inotify.max_user_instances=8192" >> /etc/sysctl.conf # monitor file system events  
-echo "fs.inotify.max_user_watches=1048576" >> /etc/sysctl.conf # monitor file system events  
+echo "fs.inotify.max_user_instances=8192" >> /etc/sysctl.conf # monitor file system events
+echo "fs.inotify.max_user_watches=1048576" >> /etc/sysctl.conf # monitor file system events
 sysctl -p
 ```
 
@@ -31,7 +31,7 @@ Note that you can turn on the experimental prometheus endpoint.
 
 ```bash
 docker plugin disable docker/telemetry:1.0.0.linux-x86_64-stable
-echo -e "{\n \"log-driver\": \"json-file\", \"log-opts\": {\"max-size\": \"10m\", \"max-file\": \"3\"}, \n \"metrics-addr\" : \"0.0.0.0:9323\", \n \"experimental\" : true \n}" > /etc/docker/daemon.json
+echo -e "{\n \"selinux-enabled\": true, \n \"log-driver\": \"json-file\", \"log-opts\": {\"max-size\": \"10m\", \"max-file\": \"3\"}, \n \"metrics-addr\" : \"0.0.0.0:9323\", \n \"experimental\" : true \n}" > /etc/docker/daemon.json
  systemctl restart docker
 ```
 
