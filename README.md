@@ -36,8 +36,8 @@ echo -e "{\n \"selinux-enabled\": true, \n \"log-driver\": \"json-file\", \"log-
 ```
 
 <a name="node"></a>
-## node sizing :
-controllers - 4vcpu/16gb ram
+## prod node sizing :
+controllers - 8vcpu/32gb ram
 
 workers - 4vcpu/16gb ram +
 
