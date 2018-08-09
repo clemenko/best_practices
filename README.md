@@ -4,6 +4,7 @@
 - [daemon](#daemon)
 - [node sizes](#node)
 - [build script](#build)
+- [k8s yaml examples](#yaml)
 - [compose example](#compose)
 
 ## OS
@@ -44,6 +45,10 @@ workers - 4vcpu/16gb ram +
 <a name="build"></a>
 ## build script :
 <a href="https://github.com/clemenko/ucp/blob/master/do_ucp.sh">https://github.com/clemenko/ucp/blob/master/ucp.sh</a>
+
+<a name="yaml"></a>
+## k8s yaml examples :
+<a href="https://github.com/clemenko/k8s_yaml">https://github.com/clemenko/k8s_yaml</a>
 
 <a name="compose"></a>
 ## compose example :
