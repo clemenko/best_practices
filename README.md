@@ -13,16 +13,53 @@ Use the latest. Centos 7.5 works well.
 <a name="kernel"></a>
 ## kernel :
 ```bash
-echo "vm.swappiness=0" >> /etc/sysctl.conf # turn off swapping unless necessary
-echo "vm.overcommit_memory=1" >> /etc/sysctl.conf # allwoing oversubscription
-echo "net.ipv4.neigh.default.gc_thresh1 = 80000" >> /etc/sysctl.conf # arp cache fixes
-echo "net.ipv4.neigh.default.gc_thresh2 = 90000" >> /etc/sysctl.conf # arp cache fixes
-echo "net.ipv4.neigh.default.gc_thresh3 = 100000" >> /etc/sysctl.conf # arp cache fixes
-echo "net.ipv4.tcp_keepalive_time=600" >> /etc/sysctl.conf # decrease the tcp timeout for ipvs
-echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf # needed for iptables
-echo "fs.may_detach_mounts=1" >> /etc/sysctl.conf # needed for host mountpoints with RHEL 7.4
-echo "fs.inotify.max_user_instances=8192" >> /etc/sysctl.conf # monitor file system events
-echo "fs.inotify.max_user_watches=1048576" >> /etc/sysctl.conf # monitor file system events
+cat << EOF >> /etc/sysctl.conf
+
+# SWAP settings
+vm.swappiness=0
+vm.overcommit_memory=1
+
+# Have a larger connection range available
+net.ipv4.ip_local_port_range=1024 65000
+
+# Reuse closed sockets faster
+net.ipv4.tcp_tw_reuse=1
+net.ipv4.tcp_fin_timeout=15
+
+# The maximum number of "backlogged sockets".  Default is 128.
+net.core.somaxconn=4096
+net.core.netdev_max_backlog=4096
+
+# 16MB per socket - which sounds like a lot,
+# but will virtually never consume that much.
+net.core.rmem_max=16777216
+net.core.wmem_max=16777216
+
+# Various network tunables
+net.ipv4.tcp_max_syn_backlog=20480
+net.ipv4.tcp_max_tw_buckets=400000
+net.ipv4.tcp_no_metrics_save=1
+net.ipv4.tcp_rmem=4096 87380 16777216
+net.ipv4.tcp_syn_retries=2
+net.ipv4.tcp_synack_retries=2
+net.ipv4.tcp_wmem=4096 65536 16777216
+
+# ARP cache settings for a highly loaded docker swarm
+net.ipv4.neigh.default.gc_thresh1=8096
+net.ipv4.neigh.default.gc_thresh2=12288
+net.ipv4.neigh.default.gc_thresh3=16384
+
+# ip_forward and tcp keepalive for iptables
+net.ipv4.tcp_keepalive_time=600
+net.ipv4.ip_forward=1
+
+# needed for host mountpoints with RHEL 7.4
+fs.may_detach_mounts=1
+
+# monitor file system events
+fs.inotify.max_user_instances=8192
+fs.inotify.max_user_watches=1048576
+EOF
 sysctl -p
 ```
 
