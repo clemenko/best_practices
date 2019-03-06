@@ -22,6 +22,9 @@ vm.overcommit_memory=1
 # Have a larger connection range available
 net.ipv4.ip_local_port_range=1024 65000
 
+# Increase max connection
+net.core.somaxconn = 10000
+
 # Reuse closed sockets faster
 net.ipv4.tcp_tw_reuse=1
 net.ipv4.tcp_fin_timeout=15
