@@ -8,10 +8,15 @@
 - [compose example](#compose)
 
 ## OS
+
 Use the latest. Centos 7.6 works well.
 
 <a name="kernel"></a>
-## kernel :
+
+## kernel
+
+Based on [https://blog.codeship.com/running-1000-containers-in-docker-swarm/](https://blog.codeship.com/running-1000-containers-in-docker-swarm/) and customer seen issues. 
+
 ```bash
 cat << EOF >> /etc/sysctl.conf
 
@@ -67,7 +72,9 @@ sysctl -p
 ```
 
 <a name="daemon"></a>
+
 ## daemon :
+
 Note that you can turn on the experimental prometheus endpoint.
 
 ```bash
@@ -76,19 +83,27 @@ echo -e "{\n \"selinux-enabled\": true, \n \"log-driver\": \"json-file\", \"log-
 ```
 
 <a name="node"></a>
-## prod node sizing :
+
+## prod node sizing
+
 controllers - 8vcpu/32gb ram
 
 workers - 4vcpu/16gb ram +
 
 <a name="build"></a>
-## build script :
+
+## build script
+
 <a href="https://github.com/clemenko/ucp/blob/master/do_ucp.sh">https://github.com/clemenko/ucp/blob/master/ucp.sh</a>
 
 <a name="yaml"></a>
-## k8s yaml examples :
+
+## k8s yaml examples
+
 <a href="https://github.com/clemenko/k8s_yaml">https://github.com/clemenko/k8s_yaml</a>
 
 <a name="compose"></a>
-## compose example :
+
+## compose example
+
 <a href="https://github.com/clemenko/compose_files/blob/master/compose_all_the_things.yml">https://github.com/clemenko/compose_files/blob/master/compose_all_the_things.yml</a>
